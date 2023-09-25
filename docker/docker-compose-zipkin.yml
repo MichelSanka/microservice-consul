@@ -7,6 +7,7 @@ services:
       - "8500:8500"
       - "8600:8600/udp"
   customer:
+    image: consul/customer
     build: ../microservice-consul-demo/microservice-consul-demo-customer
     links:
      - consul
@@ -15,6 +16,7 @@ services:
       SPRING_ZIPKIN_ENABLED: "true"
       SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411/"
   catalog:
+    image: consul/catalog
     build: ../microservice-consul-demo/microservice-consul-demo-catalog
     links:
      - consul
@@ -23,6 +25,7 @@ services:
       SPRING_ZIPKIN_ENABLED: "true"
       SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411/"
   order:
+    image: consul/order
     build: ../microservice-consul-demo/microservice-consul-demo-order
     links:
      - consul

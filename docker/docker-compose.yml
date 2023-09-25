@@ -7,14 +7,17 @@ services:
       - "8500:8500"
       - "8600:8600/udp"
   customer:
+    image: consul/customer
     build: ../microservice-consul-demo/microservice-consul-demo-customer
     links:
      - consul
   catalog:
+    image: consul/catalog
     build: ../microservice-consul-demo/microservice-consul-demo-catalog
     links:
      - consul
   order:
+    image: consul/order
     build: ../microservice-consul-demo/microservice-consul-demo-order
     links:
      - consul
